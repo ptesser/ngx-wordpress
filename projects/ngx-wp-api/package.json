@@ -1,6 +1,15 @@
 {
   "name": "ngx-wp-api",
   "version": "0.0.1",
+  "homepage": "https://github.com/ptesser/ngx-wp-api/tree/master/projects/ngx-wp-api",
+  "author": {
+    "name": "Paolo Tesser",
+    "email": "paolo.tesser.dev@gmail.com"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ptesser/ngx-wordpress.git"
+  },
   "peerDependencies": {
     "@angular/common": "^9.1.1",
     "@angular/core": "^9.1.1",

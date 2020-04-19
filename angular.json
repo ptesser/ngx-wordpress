@@ -3,38 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-wp-api": {
+    "ng-wordpress-api": {
       "projectType": "library",
-      "root": "projects/ngx-wp-api",
-      "sourceRoot": "projects/ngx-wp-api/src",
+      "root": "projects/ng-wordpress-api",
+      "sourceRoot": "projects/ng-wordpress-api/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ngx-wp-api/tsconfig.lib.json",
-            "project": "projects/ngx-wp-api/ng-package.json"
+            "tsConfig": "projects/ng-wordpress-api/tsconfig.lib.json",
+            "project": "projects/ng-wordpress-api/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ngx-wp-api/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ng-wordpress-api/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-wp-api/src/test.ts",
-            "tsConfig": "projects/ngx-wp-api/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-wp-api/karma.conf.js"
+            "main": "projects/ng-wordpress-api/src/test.ts",
+            "tsConfig": "projects/ng-wordpress-api/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-wordpress-api/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ngx-wp-api/tsconfig.lib.json",
-              "projects/ngx-wp-api/tsconfig.spec.json"
+              "projects/ng-wordpress-api/tsconfig.lib.json",
+              "projects/ng-wordpress-api/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

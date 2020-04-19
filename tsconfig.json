@@ -19,6 +19,10 @@
       "ngx-wp-api": [
         "dist/ngx-wp-api/ngx-wp-api",
         "dist/ngx-wp-api"
+      ],
+      "ng-wordpress-api": [
+        "dist/ng-wordpress-api/ng-wordpress-api",
+        "dist/ng-wordpress-api"
       ]
     }
   },

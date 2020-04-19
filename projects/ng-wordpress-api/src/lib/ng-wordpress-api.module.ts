@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
-import { NgWordpressApiComponent } from './ng-wordpress-api.component';
-
-
 
 @NgModule({
-  declarations: [NgWordpressApiComponent],
+  declarations: [],
   imports: [
   ],
-  exports: [NgWordpressApiComponent]
+  exports: []
 })
 export class NgWordpressApiModule { }

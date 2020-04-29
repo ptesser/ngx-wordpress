@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
 import { WpRequestOptions } from '../../models/WpRequestOptions';
+import { baseApiUrlToken } from '../../tokens';
 
 declare var Window: {
   [key: string]: any; // missing index defintion
@@ -15,11 +16,12 @@ declare var Window: {
   providedIn: 'root',
 })
 export class WpNetwork {
-  private baseUrl = 'http://localhost:8001/'; // FIXME: Allow to configure it
+  private readonly baseUrl = this.baseApiUrl || 'http://localhost:8001/';
   private nonce = '';
 
   constructor(
     private readonly http: HttpClient,
+    @Inject(baseApiUrlToken) private readonly baseApiUrl: string,
   ) {
     if (typeof window !== 'undefined' && (window as any).wpApiSettings) {
       this.nonce = (window as any).wpApiSettings.nonce;
@@ -62,7 +64,7 @@ export class WpNetwork {
     });
   }
 
-  resolveUrl(url: string): string {
+  resolveUrl(url: string) {
     return this.baseUrl + 'wp-json/wp/v2/' + url;
   }
 

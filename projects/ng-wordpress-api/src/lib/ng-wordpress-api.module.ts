@@ -1,4 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+
+import { NgWordpressApiConfig } from './definitions';
+import { baseApiUrlToken } from './tokens';
 
 @NgModule({
   declarations: [],
@@ -6,4 +9,13 @@ import { NgModule } from '@angular/core';
   ],
   exports: []
 })
-export class NgWordpressApiModule { }
+export class NgWordpressApiModule {
+  static forRoot(config: NgWordpressApiConfig): ModuleWithProviders {
+    return {
+      ngModule: NgWordpressApiModule,
+      providers: [
+        { provide: baseApiUrlToken, useValue: config.baseApiUrl },
+      ],
+    };
+  }
+}

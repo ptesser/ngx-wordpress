@@ -42,6 +42,127 @@
           }
         }
       }
+    },
+    "playground-ng-wp-api": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/playground-ng-wp-api",
+      "sourceRoot": "projects/playground-ng-wp-api/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/playground-ng-wp-api",
+            "index": "projects/playground-ng-wp-api/src/index.html",
+            "main": "projects/playground-ng-wp-api/src/main.ts",
+            "polyfills": "projects/playground-ng-wp-api/src/polyfills.ts",
+            "tsConfig": "projects/playground-ng-wp-api/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/playground-ng-wp-api/src/favicon.ico",
+              "projects/playground-ng-wp-api/src/assets"
+            ],
+            "styles": [
+              "projects/playground-ng-wp-api/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/playground-ng-wp-api/src/environments/environment.ts",
+                  "with": "projects/playground-ng-wp-api/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "playground-ng-wp-api:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "playground-ng-wp-api:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "playground-ng-wp-api:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/playground-ng-wp-api/src/test.ts",
+            "polyfills": "projects/playground-ng-wp-api/src/polyfills.ts",
+            "tsConfig": "projects/playground-ng-wp-api/tsconfig.spec.json",
+            "karmaConfig": "projects/playground-ng-wp-api/karma.conf.js",
+            "assets": [
+              "projects/playground-ng-wp-api/src/favicon.ico",
+              "projects/playground-ng-wp-api/src/assets"
+            ],
+            "styles": [
+              "projects/playground-ng-wp-api/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/playground-ng-wp-api/tsconfig.app.json",
+              "projects/playground-ng-wp-api/tsconfig.spec.json",
+              "projects/playground-ng-wp-api/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/playground-ng-wp-api/e2e/protractor.conf.js",
+            "devServerTarget": "playground-ng-wp-api:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "playground-ng-wp-api:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "ngx-wp-api"
 }

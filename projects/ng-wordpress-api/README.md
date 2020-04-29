@@ -15,10 +15,7 @@ Run `ng build ng-wordpress-api` to build the project. The build artifacts will b
 
 After building your library with `ng build ng-wordpress-api`, go to the dist folder `cd dist/ng-wordpress-api` and run `npm publish`.
 
-## Running unit tests
 
-Run `ng test ng-wordpress-api` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## References
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Thanks to https://github.com/ng-wordpress/api for inspiration.

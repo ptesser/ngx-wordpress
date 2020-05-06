@@ -28,7 +28,7 @@ export class WpNetwork {
     }
   }
 
-  get<T>(url: string, params?: any, options?: WpRequestOptions): Observable<any> {
+  get<T>(url: string, params?: any, options?: WpRequestOptions): Observable<T> {
     if (options && options.withCredentials) {
       if (!params) {
         params = {};
@@ -41,7 +41,7 @@ export class WpNetwork {
     });
   }
 
-  post<T>(url: string, body: any, options?: WpRequestOptions): Observable<any> {
+  post<T>(url: string, body: any, options?: WpRequestOptions): Observable<T> {
     const params = {
       _wpnonce: ''
     };
@@ -54,7 +54,7 @@ export class WpNetwork {
     });
   }
 
-  delete<T>(url: string, params?: any, options?: WpRequestOptions): Observable<any> {
+  delete<T>(url: string, params?: any, options?: WpRequestOptions): Observable<T> {
     if (options && options.withCredentials) {
       params._wpnonce = this.nonce;
     }

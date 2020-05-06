@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "publish-wp-api": "sh ./scripts/publish-ng-wordpress-api.sh"
+    "publish-wp-api": "sh ./scripts/publish-ng-wordpress-api.sh",
+    "serve-playground": "ng serve --project=playground-ng-wp-api"
   },
   "private": true,
   "dependencies": {

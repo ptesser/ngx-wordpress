@@ -1,4 +1,5 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NgWordpressApiConfig } from './definitions';
 import { baseApiUrlToken } from './tokens';
@@ -6,6 +7,7 @@ import { baseApiUrlToken } from './tokens';
 @NgModule({
   declarations: [],
   imports: [
+    HttpClientModule,
   ],
   exports: []
 })

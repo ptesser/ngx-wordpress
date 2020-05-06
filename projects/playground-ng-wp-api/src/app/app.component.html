@@ -1,1 +1,17 @@
 <h1>Playground Ng Wordpress API</h1>
+
+<main class="container-fluid">
+  <h2>Posts</h2>
+  <div
+    class="card p-4 mb-2"
+    *ngFor="let p of posts$ | async">
+    <h3>{{ p.title.rendered }}</h3>
+    <div>
+      <h4>Category: {{ (p.category | async)?.name }}</h4>
+    </div>
+    <div [innerHTML]="(p.content.rendered | slice : 0: 1000) + ' ...'"></div>
+    <div>
+      <a href="#">Read more</a>
+    </div>
+  </div>
+</main>

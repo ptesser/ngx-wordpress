@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     NgWordpressApiModule.forRoot({
-      baseApiUrl: '',
+      baseApiUrl: 'https://venividilegi.it/',
     }),
   ],
   providers: [],

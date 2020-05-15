@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 
 import { map } from 'rxjs/operators';
 
-import { WpPosts, WpCategories } from 'ng-wordpress-api';
+import { WpCategories } from './../../../ng-wordpress-api/src/lib/services/internals/wp-categories';
+import { WpPosts } from './../../../ng-wordpress-api/src/lib/services/internals/wp-posts';
 
 @Component({
   selector: 'app-root',

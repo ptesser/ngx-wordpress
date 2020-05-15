@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { NgWordpressApiModule } from 'ng-wordpress-api';
+import { NgWordpressApiModule } from './../../../ng-wordpress-api/src/lib/ng-wordpress-api.module';
 
 import { AppComponent } from './app.component';
 

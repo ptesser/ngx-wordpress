@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
@@ -29,14 +29,21 @@ export class WpNetwork {
   }
 
   get<T>(url: string, params?: any, options?: WpRequestOptions): Observable<T> {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
+
     if (options && options.withCredentials) {
       if (!params) {
         params = {};
       }
       params._wpnonce = this.nonce;
     }
+    if (options && options.contentType) {
+      headers = headers.set('Content-Type', options.contentType);
+    }
+
     return this.http.get<T>(this.resolveUrl(url), {
       withCredentials: options && options.withCredentials,
+      headers,
       params,
     });
   }

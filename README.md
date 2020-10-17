@@ -17,3 +17,12 @@ This convention is enforce by some git pre-hook.
 
 You could make a traditional commit following the syntax rules or use `npm run commit` that help you to construct the commit message in the right way.
 
+## Reminder
+
+In order to run the **playground** you need to build the library before run it: `ng build ng-wordpress-api --prod`.
+
+## Commands
+
+- `ng build ng-wordpress-api --prod`: build library
+- `npm run serve-playground`: trigger playground example starts on localhost
+- `publish-wp-api`: trigger library build and publish it to NPM

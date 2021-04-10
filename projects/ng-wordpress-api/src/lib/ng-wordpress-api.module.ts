@@ -12,7 +12,7 @@ import { baseApiUrlToken } from './tokens';
   exports: []
 })
 export class NgWordpressApiModule {
-  static forRoot(config: NgWordpressApiConfig): ModuleWithProviders {
+  static forRoot(config: NgWordpressApiConfig): ModuleWithProviders<NgWordpressApiModule> {
     return {
       ngModule: NgWordpressApiModule,
       providers: [

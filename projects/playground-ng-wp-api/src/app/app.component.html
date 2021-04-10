@@ -9,7 +9,7 @@
     <div>
       <h4>Category: {{ (p.category | async)?.name }}</h4>
     </div>
-    <div [innerHTML]="(p.content.rendered | slice : 0: 1000) + ' ...'"></div>
+    <div [innerHTML]="(p.content.rendered)"></div>
     <div>
       <a href="#">Read more</a>
     </div>

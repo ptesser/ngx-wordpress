@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { map } from 'rxjs/operators';
+import { map, shareReplay } from 'rxjs/operators';
 
-import { WpPosts, WpCategories } from 'ng-wordpress-api';
+import { WpPosts, WpCategories, WpPageStatus, WpContext } from 'ng-wordpress-api';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +10,13 @@ import { WpPosts, WpCategories } from 'ng-wordpress-api';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  readonly posts$ = this.wpPostApi.getList().pipe(
-    map((posts) => posts.filter((p) => p.status === 'publish')),
+  readonly posts$ = this.wpPostApi.getList({ context: WpContext.VIEW }).pipe(
+    map((posts) => posts.filter((p) => p.status === WpPageStatus.PUBLISH)),
     map((posts) => posts.map((p) => ({
       ...p,
-      category: p.categories.length > 0 ? this.wpCategoryApi.get({ id: p.categories[0] }) : undefined,
+      category: p.categories.length > 0
+        ? this.wpCategoryApi.get({ id: p.categories[0], context: WpContext.EMBED }).pipe(shareReplay(1))
+        : undefined,
     }))),
   );
 
